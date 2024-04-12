@@ -38,6 +38,11 @@ namespace JogoGatinhoEmFuga
             return new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
         }
 
+        public bool HasDisappeared()
+        {
+            return disappeared;
+        }
+
         public void Disappear()
         {
             disappeared = true;

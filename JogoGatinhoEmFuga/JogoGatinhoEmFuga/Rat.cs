@@ -15,7 +15,6 @@ namespace JogoGatinhoEmFuga
         Game game;
         bool outOfBounds = false;
         bool disappeared = false;
-
         public Vector2 Velocity { get => velocity; }
 
         public Rat(Game game, Texture2D texture) 
@@ -38,6 +37,10 @@ namespace JogoGatinhoEmFuga
             return new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
         }
 
+        public bool HasDisappeared()
+        {
+            return disappeared;
+        }
         public void Disappear ()
         {
             disappeared = true;

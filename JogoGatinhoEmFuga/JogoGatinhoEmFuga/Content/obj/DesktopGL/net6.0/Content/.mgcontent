@@ -4,12 +4,12 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/DELL/DELL_UNINASSAU/5º período/Game Engine/JogoGatinhoEmFuga/JogoGatinhoEmFuga/JogoGatinhoEmFuga/Content/Assets/birdIndle1.png</File>
-    <File>C:/Users/DELL/DELL_UNINASSAU/5º período/Game Engine/JogoGatinhoEmFuga/JogoGatinhoEmFuga/JogoGatinhoEmFuga/Content/Assets/catIndle1.gif</File>
-    <File>C:/Users/DELL/DELL_UNINASSAU/5º período/Game Engine/JogoGatinhoEmFuga/JogoGatinhoEmFuga/JogoGatinhoEmFuga/Content/Assets/City1.png</File>
-    <File>C:/Users/DELL/DELL_UNINASSAU/5º período/Game Engine/JogoGatinhoEmFuga/JogoGatinhoEmFuga/JogoGatinhoEmFuga/Content/Assets/RatBrown.psd</File>
-    <File>C:/Users/DELL/DELL_UNINASSAU/5º período/Game Engine/JogoGatinhoEmFuga/JogoGatinhoEmFuga/JogoGatinhoEmFuga/Content/Assets/ratIndle1.png</File>
-    <File>C:/Users/DELL/DELL_UNINASSAU/5º período/Game Engine/JogoGatinhoEmFuga/JogoGatinhoEmFuga/JogoGatinhoEmFuga/Content/Font.spritefont</File>
+    <File>C:/Work/WorkSpace/Jogos/Jogo-do-Gato-/JogoGatinhoEmFuga/JogoGatinhoEmFuga/Content/Assets/birdIndle1.png</File>
+    <File>C:/Work/WorkSpace/Jogos/Jogo-do-Gato-/JogoGatinhoEmFuga/JogoGatinhoEmFuga/Content/Assets/catIndle1.gif</File>
+    <File>C:/Work/WorkSpace/Jogos/Jogo-do-Gato-/JogoGatinhoEmFuga/JogoGatinhoEmFuga/Content/Assets/City1.png</File>
+    <File>C:/Work/WorkSpace/Jogos/Jogo-do-Gato-/JogoGatinhoEmFuga/JogoGatinhoEmFuga/Content/Assets/RatBrown.psd</File>
+    <File>C:/Work/WorkSpace/Jogos/Jogo-do-Gato-/JogoGatinhoEmFuga/JogoGatinhoEmFuga/Content/Assets/ratIndle1.png</File>
+    <File>C:/Work/WorkSpace/Jogos/Jogo-do-Gato-/JogoGatinhoEmFuga/JogoGatinhoEmFuga/Content/Font.spritefont</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

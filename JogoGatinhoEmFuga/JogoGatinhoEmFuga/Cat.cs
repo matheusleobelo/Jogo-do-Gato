@@ -10,19 +10,20 @@ namespace JogoGatinhoEmFuga
     {
         public const float CAT_VELOCITY = 5F;
 
+        public int score;
         Vector2 position;
         Texture2D texture;
         Game game;
-        
 
-        public Cat(Game game, Vector2 position, Texture2D  texture, Keys keyUp, Keys keyDown, Keys keyRight, Keys keyLeft)    
+
+        public Cat(Game game, Vector2 position, Texture2D texture, Keys keyUp, Keys keyDown, Keys keyRight, Keys keyLeft)
         {
             this.position = position;
             this.texture = texture;
             this.game = game;
         }
 
-        public void Update() 
+        public void Update()
         {
             //para obter o estado atual do teclado
             var keyboard = Keyboard.GetState();
@@ -37,14 +38,23 @@ namespace JogoGatinhoEmFuga
                     break;
                 case Keys.Right:
                     position.X += CAT_VELOCITY;
-                    break ;
+                    break;
                 case Keys.Left:
                     position.X -= CAT_VELOCITY;
                     break;
                 default: break;
             }
 
-            var viewport= game.GraphicsDevice.Viewport;
+            var viewport = game.GraphicsDevice.Viewport;
+
+            if (position.X < 0)
+            {
+                position.X = 0;
+            }
+            else if (position.X > Globals.SCREEN_WIDTH - texture.Width)
+            {
+                position.X = Globals.SCREEN_WIDTH - texture.Width;
+            }
 
             if (position.Y < 0)
             {
@@ -57,11 +67,12 @@ namespace JogoGatinhoEmFuga
 
         }
 
-        public void Draw (SpriteBatch spriteBatch) 
+        public void Draw(SpriteBatch spriteBatch)
         {
             float escala = 2.5f;
             Vector2 posicaoAjustada = new Vector2(position.X - (texture.Width * (escala - 1) / 2), position.Y - (texture.Height * (escala - 1) / 2));
             spriteBatch.Draw(texture, posicaoAjustada, null, Color.White, 0f, Vector2.Zero, escala, SpriteEffects.None, 0f);
+
         }
 
         public Rectangle GetBounds()
@@ -77,32 +88,42 @@ namespace JogoGatinhoEmFuga
 
             if (catBounds.Intersects(ratBounds))
             {
-                rat.Disappear();
+                if (!rat.HasDisappeared())
+                {
 
-                if (rat.Velocity.X < 0)
-                {
-                    rat.SetPosition(position.X + texture.Width);
-                }
-                else
-                {
-                    rat.SetPosition(position.X - texture.Width);
+                    rat.Disappear();
+
+                    score += 10;
+
+                    if (rat.Velocity.X < 0)
+                    {
+                        rat.SetPosition(position.X + texture.Width);
+                    }
+                    else
+                    {
+                        rat.SetPosition(position.X - texture.Width);
+                    }
                 }
             }
 
             if (catBounds.Intersects(birdBounds))
             {
-                bird.Disappear();
+                if (!bird.HasDisappeared())
+                {
+                    bird.Disappear();
 
-                if (bird.Velocity.X < 0)
-                {
-                    bird.SetPosition(position.X + texture.Width);
-                }
-                else
-                {
-                    bird.SetPosition(position.X - texture.Width);
+                    score += 20;
+
+                    if (bird.Velocity.X < 0)
+                    {
+                        bird.SetPosition(position.X + texture.Width);
+                    }
+                    else
+                    {
+                        bird.SetPosition(position.X - texture.Width);
+                    }
                 }
             }
         }
-
     }
 }

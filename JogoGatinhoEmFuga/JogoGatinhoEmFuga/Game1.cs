@@ -10,15 +10,17 @@ namespace JogoGatinhoEmFuga
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        private SpriteFont _font;
+
         Cat cat;
         Rat rat;
         BirdLightBlue bird;
-               
+
         Texture2D back;
         Texture2D catYellowIndle1;
         Texture2D ratBrownIndle1;
         Texture2D birdLightBlueIndle1;
-        
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -29,22 +31,26 @@ namespace JogoGatinhoEmFuga
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            
+
             base.Initialize();
+
+            Globals.SCREEN_WIDTH = _graphics.PreferredBackBufferWidth;
+            Globals.SCREEN_HEIGHT = _graphics.PreferredBackBufferHeight;
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _font = Content.Load<SpriteFont>("Font");
 
             // TODO: use this.Content to load your game content here
-            
+
             back = Content.Load<Texture2D>("assets/City1");
             catYellowIndle1 = Content.Load<Texture2D>("assets/catIndle1");
             ratBrownIndle1 = Content.Load<Texture2D>("assets/ratIndle1");
             birdLightBlueIndle1 = Content.Load<Texture2D>("assets/birdIndle1");
 
-            cat = new Cat(this, new Vector2(10,100), catYellowIndle1, Keys.Up, Keys.Down, Keys.Right, Keys.Left);
+            cat = new Cat(this, new Vector2(10, 100), catYellowIndle1, Keys.Up, Keys.Down, Keys.Right, Keys.Left);
             rat = new Rat(this, ratBrownIndle1);
             rat.SetInStartPosition();
             bird = new BirdLightBlue(this, birdLightBlueIndle1);
@@ -59,7 +65,7 @@ namespace JogoGatinhoEmFuga
             // TODO: Add your update logic here
             cat.Update();
             rat.Update();
-            bird.Update();  
+            bird.Update();
             base.Update(gameTime);
 
             cat.HasCollided(rat, bird);
@@ -78,12 +84,13 @@ namespace JogoGatinhoEmFuga
             Vector2 positionTela = Vector2.Zero;
 
 
-
-            // TODO: Add your drawing code here
-            
-
             _spriteBatch.Begin();
             _spriteBatch.Draw(back, positionTela, null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
+
+            string scoreText = "Score: " + cat.score;
+            _spriteBatch.DrawString(_font, scoreText , Vector2.Zero, Color.Black);
+
+
             cat.Draw(_spriteBatch);
             rat.Draw(_spriteBatch);
             bird.Draw(_spriteBatch);
